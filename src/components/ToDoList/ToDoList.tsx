@@ -1,10 +1,10 @@
 import { CloseIcon } from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
 import styled from "styled-components";
-import { ToDo } from "@/app/types/ToDo";
+import { ToDo } from "@/types/ToDo";
 import { Dispatch, useCallback, useMemo, useRef } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { Action } from "@/app/hooks/useToDo";
-import { Spinner } from "@/app/components/Spinner";
+import { Action } from "@/hooks/useToDo";
+import { Spinner } from "../Spinner";
 
 const ToDoListWrapper = styled.ul`
   padding-block: 10px;

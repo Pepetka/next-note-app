@@ -1,5 +1,5 @@
 import { Reducer, useEffect, useReducer, useState } from "react";
-import { ToDo } from "@/app/types/ToDo";
+import { ToDo } from "@/types/ToDo";
 
 const getSavedToDos = () => {
   if (typeof window === "undefined") return [];

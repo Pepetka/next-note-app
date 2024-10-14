@@ -1,7 +1,7 @@
 import { CloseIcon } from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
 import { ChangeEvent, MouseEvent, Dispatch, FormEvent, useCallback, useState } from "react";
 import styled from "styled-components";
-import { Action } from "@/app/hooks/useToDo";
+import { Action } from "@/hooks/useToDo";
 
 const Input = styled.input`
   height: 40px;

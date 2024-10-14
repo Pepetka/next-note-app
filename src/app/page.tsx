@@ -1,10 +1,10 @@
 "use client";
 
 import styled from "styled-components";
-import { ToDoList } from "@/app/components/ToDoList";
-import { AddToDoForm } from "@/app/components/AddToDoForm";
-import { useToDo } from "@/app/hooks/useToDo";
-import { Controls } from "@/app/components/Controls";
+import { ToDoList } from "../components/ToDoList";
+import { AddToDoForm } from "../components/AddToDoForm";
+import { useToDo } from "@/hooks/useToDo";
+import { Controls } from "../components/Controls";
 
 const Wrapper = styled.div`
   width: 90%;

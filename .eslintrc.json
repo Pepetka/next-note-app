@@ -1,6 +1,25 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "eslint:recommended",
+    "prettier"
+  ],
   "plugins": ["prettier", "unused-imports"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"],
+        "projectService": true,
+        "tsconfigRootDir": "./"
+      },
+      "extends": [
+        "next/core-web-vitals",
+        "plugin:@typescript-eslint/recommended"
+      ]
+    }
+  ],
   "rules": {
     "prettier/prettier": [
       "error",

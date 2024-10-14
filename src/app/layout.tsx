@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { StyledComponentsRegistry } from "@/app/components/StyledComponentRegistry";
+import { StyledComponentsRegistry } from "../components/StyledComponentRegistry";
 import "./globals.css";
 
 const roboto = Roboto({
