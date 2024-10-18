@@ -1,23 +1,25 @@
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  height: 100vh;
   padding-block: 20px;
   overflow: hidden;
-  height: 100vh;
 }
 
 *::-webkit-scrollbar {
   width: 10px;
 }
+
 *::-webkit-scrollbar-track {
-  background: rgba(224, 224, 224, 0.66);
+  background: rgb(224 224 224 / 66%);
 }
+
 *::-webkit-scrollbar-thumb {
-  background-color: #0B76EF;
-  border-radius: 20px;
   border: 2px solid #fff;
+  border-radius: 20px;
+  background-color: #0B76EF;
 }

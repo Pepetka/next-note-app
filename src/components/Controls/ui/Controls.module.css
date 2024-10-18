@@ -1,0 +1,42 @@
+.controlsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  gap: 10px;
+}
+
+.button {
+  width: 80px;
+  height: 40px;
+  padding-inline: 10px;
+  transition: all 0.1s ease-in-out;
+  border: 2px solid #808080;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #808080;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.link:focus-visible {
+  border: none;
+  outline: none;
+}
+
+.link:focus-visible .button {
+  border: 2px solid #fff;
+  outline: 2px solid #0b76ef;
+}
+
+.button.active {
+  border: 2px solid #0b76ef;
+  background-color: #0b76ef;
+  color: #fff;
+}

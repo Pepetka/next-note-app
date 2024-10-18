@@ -1,1 +1,1 @@
-export { ToDoList } from "./ToDoList";
+export { ToDoList } from "./ui/ToDoList/ToDoList";

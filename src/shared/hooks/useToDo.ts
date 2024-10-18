@@ -1,5 +1,5 @@
 import { Reducer, useEffect, useReducer, useState } from "react";
-import { ToDo } from "@/types/ToDo";
+import type { ToDo } from "@/shared/types/ToDo";
 
 const getSavedToDos = () => {
   if (typeof window === "undefined") return [];
@@ -55,7 +55,13 @@ const reducer: Reducer<ToDo[], Action> = (state, action): ToDo[] => {
   }
 };
 
-export const useToDo = () => {
+export interface UseToDoReturn {
+  toDos: ToDo[];
+  isInitialized: boolean;
+  dispatch: (action: Action) => void;
+}
+
+export const useToDo = (): UseToDoReturn => {
   const [toDos, dispatch] = useReducer(reducer, []);
   const [isInitialized, setIsInitialized] = useState(false);
 

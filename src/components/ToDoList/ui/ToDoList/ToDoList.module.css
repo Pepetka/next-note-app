@@ -1,0 +1,19 @@
+.toDoListWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  padding-block: 10px;
+  overflow: hidden auto;
+}
+
+.virtualContainer {
+  position: relative;
+  width: 100%;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

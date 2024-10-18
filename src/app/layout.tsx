@@ -1,7 +1,6 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { StyledComponentsRegistry } from "../components/StyledComponentRegistry";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -23,9 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={roboto.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-      </body>
+      <body className={roboto.className}>{children}</body>
     </html>
   );
 }
