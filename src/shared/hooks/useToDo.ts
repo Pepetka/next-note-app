@@ -1,55 +1,44 @@
 import { Reducer, useEffect, useReducer, useState } from "react";
 import type { ToDo } from "@/shared/types/ToDo";
-
-const getSavedToDos = () => {
-  if (typeof window === "undefined") return [];
-  const toDos = localStorage.getItem("toDos");
-  return toDos ? JSON.parse(toDos) : [];
-};
-
-const saveToDos = (toDos: ToDo[]) => {
-  if (typeof window === "undefined") return;
-  localStorage.setItem("toDos", JSON.stringify(toDos));
-};
-
-const removeToDo = () => {
-  if (typeof window === "undefined") return;
-  localStorage.removeItem("toDos");
-};
+import { ToDosLS } from "@/shared/lib";
 
 export type Action =
   | {
-      type: "Add" | "DeleteAll" | "Change";
+      type: "Add" | "Change";
       payload: ToDo;
     }
   | {
-      type: "Delete";
+      type: "ClearCompleted" | "Delete";
       payload: string;
     }
   | {
-      type: "Reset";
+      type: "Reset" | "ClearAll";
     };
 
 const reducer: Reducer<ToDo[], Action> = (state, action): ToDo[] => {
   if (action.type === "Add") {
     const newToDos = [...state, action.payload];
-    saveToDos(newToDos);
+    ToDosLS.saveToDos(newToDos);
     return newToDos;
   } else if (action.type === "Change") {
     const newToDos = state.map((todo) => {
       return todo.id === action.payload.id ? action.payload : todo;
     });
-    saveToDos(newToDos);
+    ToDosLS.saveToDos(newToDos);
     return newToDos;
   } else if (action.type === "Delete") {
     const newToDos = state.filter((todo) => todo.id !== action.payload);
-    saveToDos(newToDos);
+    ToDosLS.saveToDos(newToDos);
     return newToDos;
-  } else if (action.type === "DeleteAll") {
-    removeToDo();
+  } else if (action.type === "ClearAll") {
+    ToDosLS.clearToDos();
     return [];
+  } else if (action.type === "ClearCompleted") {
+    const newToDos = state.filter((todo) => !todo.checked);
+    ToDosLS.saveToDos(newToDos);
+    return newToDos;
   } else if (action.type === "Reset") {
-    return getSavedToDos();
+    return ToDosLS.getSavedToDos();
   } else {
     throw new Error("Unknown action type");
   }

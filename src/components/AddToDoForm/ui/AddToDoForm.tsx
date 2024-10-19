@@ -40,16 +40,22 @@ export const AddToDoForm = () => {
   }, []);
 
   return (
-    <form className={styles.form} onSubmit={onSubmit} name="AddToDoForm">
+    <form className={styles.form} onSubmit={onSubmit} name="AddToDoForm" data-testid="AddToDoForm">
       <input
         className={styles.input}
+        data-testid="AddToDoForm__Input"
         type="text"
         value={input}
         onChange={onChange}
         placeholder="What needs to be done?"
         name="AddToDoInput"
       />
-      <button className={styles.button} type="reset" onClick={onReset}>
+      <button
+        className={styles.button}
+        data-testid="AddToDoForm__Button"
+        type="reset"
+        onClick={onReset}
+      >
         <CloseIcon />
       </button>
     </form>

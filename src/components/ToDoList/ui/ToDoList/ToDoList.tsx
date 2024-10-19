@@ -43,7 +43,7 @@ export const ToDoList = (props: ToDoListProps) => {
     count: filteredToDos.length,
     getScrollElement: () => parentRef.current,
     estimateSize: () => 40,
-    overscan: 10,
+    overscan: 5,
   });
 
   const onCheck = useCallback(
@@ -66,14 +66,22 @@ export const ToDoList = (props: ToDoListProps) => {
 
   if (!isInitialized) {
     return (
-      <div className={styles.loaderContainer}>
+      <div data-testid="ToDoList__Loader" className={styles.loaderContainer}>
         <Spinner />
       </div>
     );
   }
 
+  if (filteredToDos.length === 0) {
+    return (
+      <div data-testid="ToDoList__Empty" className={styles.emptyContainer}>
+        <p>There are no to-do items</p>
+      </div>
+    );
+  }
+
   return (
-    <ul className={styles.toDoListWrapper} ref={parentRef}>
+    <ul className={styles.toDoListWrapper} data-testid="ToDoList" ref={parentRef}>
       <div className={styles.virtualContainer} style={{ height: rowVirtualizer.getTotalSize() }}>
         {rowVirtualizer.getVirtualItems().map((virtualItem) => {
           const todo = filteredToDos[virtualItem.index];

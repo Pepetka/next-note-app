@@ -29,18 +29,25 @@ export const ToDoListItem = (props: ToDoListItemProps) => {
   return (
     <div
       className={styles.toDoItem}
+      data-testid={`ToDoListItem${todo.id}`}
       style={{ transform: `translateY(${translateY}px)`, height: `${height}px` }}
     >
       <label className={styles.label}>
         <input
           className={styles.checkbox}
+          data-testid={`ToDoListItem${todo.id}__Checkbox`}
           type="checkbox"
           checked={todo.checked}
           onChange={onChangeHandle}
           name={todo.title}
         />
         <div className={styles.labelText}>{todo.title}</div>
-        <button className={styles.delete} type="button" onClick={onDeleteHandle}>
+        <button
+          className={styles.delete}
+          data-testid={`ToDoListItem${todo.id}__Delete`}
+          type="button"
+          onClick={onDeleteHandle}
+        >
           <CloseIcon />
         </button>
       </label>

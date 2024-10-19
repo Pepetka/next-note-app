@@ -12,7 +12,8 @@
   width: 100%;
 }
 
-.loaderContainer {
+.loaderContainer,
+.emptyContainer {
   display: flex;
   justify-content: center;
   width: 100%;

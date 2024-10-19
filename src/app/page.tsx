@@ -8,11 +8,11 @@ interface HomeProps {
   searchParams: { filter: "all" | "active" | "finished" | null };
 }
 
-const Home = (props: HomeProps) => {
+const HomePage = (props: HomeProps) => {
   const { searchParams } = props;
 
   return (
-    <div className={styles.main}>
+    <div className={styles.main} data-testid="HomePage">
       <div className={styles.wrapper}>
         <StoreProvider>
           <h1 className={styles.title}>Todos</h1>
@@ -25,4 +25,4 @@ const Home = (props: HomeProps) => {
   );
 };
 
-export default Home;
+export default HomePage;
