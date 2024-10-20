@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { mockLocalStorage, mockVirtualList } from "@/shared/test";
+import { StoreProvider } from "@/shared/providers";
 import { ToDosLS } from "@/shared/lib";
 import HomePage from "./page";
 
@@ -13,12 +14,12 @@ describe("App", () => {
   });
 
   it("to be in the document", () => {
-    render(<HomePage searchParams={{ filter: "all" }} />);
+    render(<HomePage searchParams={{ filter: "all" }} />, { wrapper: StoreProvider });
     expect(screen.getByTestId("HomePage")).toBeInTheDocument();
   });
 
   it("add toDos", async () => {
-    render(<HomePage searchParams={{ filter: "all" }} />);
+    render(<HomePage searchParams={{ filter: "all" }} />, { wrapper: StoreProvider });
 
     const input = screen.getByTestId("AddToDoForm__Input");
     await userEvent.type(input, "Test todo Title{enter}");
