@@ -6,12 +6,13 @@ import { StoreContext, StoreContextType } from "./StoreContext";
 
 interface StoreProviderProps {
   children: ReactNode;
+  initialState?: Partial<Omit<StoreContextType, "dispatch">>;
 }
 
 export const StoreProvider = (props: StoreProviderProps) => {
-  const { children } = props;
+  const { children, initialState = {} } = props;
 
-  const { toDos, isInitialized, dispatch } = useToDo();
+  const { toDos, isInitialized, dispatch } = useToDo(initialState);
 
   const value: StoreContextType = useMemo(
     () => ({

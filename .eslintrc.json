@@ -3,14 +3,23 @@
     "next/core-web-vitals",
     "next/typescript",
     "eslint:recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
-  "plugins": ["prettier", "unused-imports"],
+  "plugins": [
+    "prettier",
+    "unused-imports"
+  ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
       "parserOptions": {
-        "project": ["./tsconfig.json"],
+        "project": [
+          "./tsconfig.json"
+        ],
         "projectService": true,
         "tsconfigRootDir": "./"
       },
@@ -26,7 +35,9 @@
       {
         "endOfLine": "auto"
       },
-      { "usePrettierrc": true }
+      {
+        "usePrettierrc": true
+      }
     ],
     "unused-imports/no-unused-imports": "error"
   }

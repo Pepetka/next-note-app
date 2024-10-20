@@ -1,3 +1,2 @@
-export * from "./mockRouter";
-export * from "./mockLocalStorage";
-export * from "./mockVirtualList";
+export * from "./mocks";
+export * from "./decorators";

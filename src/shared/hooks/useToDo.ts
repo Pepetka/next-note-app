@@ -50,9 +50,11 @@ export interface UseToDoReturn {
   dispatch: (action: Action) => void;
 }
 
-export const useToDo = (): UseToDoReturn => {
-  const [toDos, dispatch] = useReducer(reducer, []);
-  const [isInitialized, setIsInitialized] = useState(false);
+type UseToDoInitial = Partial<Omit<UseToDoReturn, "dispatch">>;
+
+export const useToDo = (initialState: UseToDoInitial): UseToDoReturn => {
+  const [toDos, dispatch] = useReducer(reducer, initialState.toDos ?? []);
+  const [isInitialized, setIsInitialized] = useState(initialState.isInitialized ?? false);
 
   useEffect(() => {
     dispatch({ type: "Reset" });
