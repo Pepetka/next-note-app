@@ -48,7 +48,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Build
+      - name: Lint
         run: pnpm run lint
 
   test:
@@ -71,5 +71,5 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Build
+      - name: Test
         run: pnpm run test
