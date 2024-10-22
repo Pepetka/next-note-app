@@ -27,7 +27,7 @@ export const ToDoListItem = (props: ToDoListItemProps) => {
   const onChangeHandle = useCallback(() => onCheck(todo.id), [onCheck, todo.id]);
 
   return (
-    <div
+    <li
       className={styles.toDoItem}
       data-testid={`ToDoListItem${todo.id}`}
       style={{ transform: `translateY(${translateY}px)`, height: `${height}px` }}
@@ -51,6 +51,6 @@ export const ToDoListItem = (props: ToDoListItemProps) => {
           <CloseIcon />
         </button>
       </label>
-    </div>
+    </li>
   );
 };

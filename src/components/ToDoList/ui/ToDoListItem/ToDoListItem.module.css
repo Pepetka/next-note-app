@@ -3,12 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  transition: all 0.1s ease-in-out;
   list-style: none;
-
-  &:hover {
-    opacity: 0.7;
-  }
 }
 
 .label {
@@ -17,6 +12,7 @@
   align-items: center;
   width: 100%;
   height: 40px;
+  transition: opacity 0.1s ease-in-out;
   color: black;
   cursor: pointer;
 
@@ -41,6 +37,10 @@
   &:has(.checkbox:focus-visible)::before {
     border-color: white;
     outline: 2px solid #0b76ef;
+  }
+
+  &:hover {
+    opacity: 0.7;
   }
 }
 
@@ -72,7 +72,6 @@
   background: none;
   color: #808080;
   cursor: pointer;
-  justify-self: flex-end;
 
   &:focus-visible {
     outline: 2px solid #0b76ef;
@@ -81,4 +80,51 @@
   &:hover {
     transform: scale(0.95);
   }
+}
+
+.sortableContainer {
+  display: flex;
+}
+
+.dndTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  transition: all 0.1s ease-in-out;
+  border: none;
+  background: none;
+  color: #808080;
+  cursor: pointer;
+}
+
+.dndHandle {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2px;
+  background: #808080;
+}
+
+.dndHandle::before,
+.dndHandle::after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #808080;
+}
+
+.dndHandle::before {
+  content: "";
+  top: -5px;
+}
+
+.dndHandle::after {
+  content: "";
+  bottom: -5px;
 }

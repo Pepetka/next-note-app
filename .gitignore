@@ -3,6 +3,7 @@
 .idea
 .swc
 reports
+tests-examples
 
 # dependencies
 /node_modules
@@ -40,3 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 *storybook.log
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

@@ -8,6 +8,10 @@ export type Action =
       payload: ToDo;
     }
   | {
+      type: "Reorder";
+      payload: ToDo[];
+    }
+  | {
       type: "ClearCompleted" | "Delete";
       payload: string;
     }
@@ -39,6 +43,8 @@ const reducer: Reducer<ToDo[], Action> = (state, action): ToDo[] => {
     return newToDos;
   } else if (action.type === "Reset") {
     return ToDosLS.getSavedToDos();
+  } else if (action.type === "Reorder") {
+    return ToDosLS.saveToDos(action.payload);
   } else {
     throw new Error("Unknown action type");
   }

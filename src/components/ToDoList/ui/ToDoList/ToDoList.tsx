@@ -37,7 +37,7 @@ export const ToDoList = (props: ToDoListProps) => {
     [filter, toDos],
   );
 
-  const parentRef = useRef<HTMLUListElement | null>(null);
+  const parentRef = useRef<HTMLDivElement | null>(null);
 
   const rowVirtualizer = useVirtualizer({
     count: filteredToDos.length,
@@ -81,8 +81,8 @@ export const ToDoList = (props: ToDoListProps) => {
   }
 
   return (
-    <ul className={styles.toDoListWrapper} data-testid="ToDoList" ref={parentRef}>
-      <div className={styles.virtualContainer} style={{ height: rowVirtualizer.getTotalSize() }}>
+    <div className={styles.toDoListWrapper} data-testid="ToDoList" ref={parentRef}>
+      <ul className={styles.virtualContainer} style={{ height: rowVirtualizer.getTotalSize() }}>
         {rowVirtualizer.getVirtualItems().map((virtualItem) => {
           const todo = filteredToDos[virtualItem.index];
 
@@ -97,7 +97,7 @@ export const ToDoList = (props: ToDoListProps) => {
             />
           );
         })}
-      </div>
-    </ul>
+      </ul>
+    </div>
   );
 };
